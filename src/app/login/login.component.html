@@ -1,0 +1,12 @@
+<p id="aim">{{aim}}</p>
+
+<div class="form">
+    <h1>login</h1>
+
+    <div class="login-form">
+        <input type="text" id="bk_username" (change)="acnoChange()" [placeholder]="accno" />
+        <input type="password" id="bk_password" placeholder="password" />
+        <button (click)="login()">login</button>
+        <p class="message">Not registered? <a href="#">Create an account</a></p>
+    </div>
+</div>
