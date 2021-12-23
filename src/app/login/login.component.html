@@ -4,9 +4,9 @@
     <h1>login</h1>
 
     <div class="login-form">
-        <input type="text" id="bk_username" (change)="acnoChange()" [placeholder]="accno" />
-        <input type="password" id="bk_password" placeholder="password" />
-        <button (click)="login()">login</button>
+        <input type="text" id="bk_username" #acno [placeholder]="accno" />
+        <input type="password" id="bk_password" #pswd placeholder="password" />
+        <button (click)="login(acno,pswd)">login</button>
         <p class="message">Not registered? <a href="#">Create an account</a></p>
     </div>
 </div>
