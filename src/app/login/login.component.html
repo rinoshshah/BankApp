@@ -1,12 +1,13 @@
 <p id="aim">{{aim}}</p>
 
 <div class="form">
-    <h1>login</h1>
+    <h1>Login</h1>
 
     <div class="login-form">
-        <input type="text" id="bk_username" #acno [placeholder]="accno" />
-        <input type="password" id="bk_password" #pswd placeholder="password" />
-        <button (click)="login(acno,pswd)">login</button>
-        <p class="message">Not registered? <a href="#">Create an account</a></p>
+        <input type="text" id="bk_username" [(ngModel)]="acno" [placeholder]="accno" />
+        <input type="password" id="bk_password" [(ngModel)]="pswd" placeholder="password" />
+        <button (click)="login()">login</button>
+        <p class="message">Not registered? <a routerLink="register">Create an account</a></p>
     </div>
+
 </div>
