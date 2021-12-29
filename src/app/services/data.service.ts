@@ -33,7 +33,7 @@ export class DataService {
 
   }
 
-  login(acno:any,password:any){
+  login(acno: any, password: any) {
     let database = this.users
 
     if (acno in database) {
@@ -56,30 +56,61 @@ export class DataService {
 
   }
 
-deposit(acno:any,password:any,amt:any){
+  deposit(acno: any, password: any, amt: any) {
 
-  var amount = parseInt(amt)
+    var amount = parseInt(amt)
 
 
-  let db= this.users
+    let db = this.users
 
-  if (acno in db) {
-    if (password==db[acno]["password"]) {
-      db[acno]["balance"]=db[acno]["balance"]+amount
-      return db[acno]["balance"]
+    if (acno in db) {
+      if (password == db[acno]["password"]) {
+        db[acno]["balance"] = db[acno]["balance"] + amount
+        return db[acno]["balance"]
 
-      
+
+      }
+      else {
+        alert("Incorrect Password!!")
+        return false
+      }
+
     }
-    else{
-      alert("Incorrect Password!!")
+    else {
+      alert("account doesnt exist!!")
       return false
     }
+  }
+
+  withdraw(acno: any, password: any, amt: any) {
+
+    var amount = parseInt(amt)
+
+    let db = this.users
     
+    if (acno in db) {
+      if (password == db[acno]["password"]) {
+        if (db[acno]["balance"]>=amount) {
+          db[acno]["balance"] = db[acno]["balance"] - amount
+        return db[acno]["balance"]
+          
+        }
+        
+
+
+      }
+      else {
+        alert("Incorrect Password!!")
+        return false
+      }
+
+    }
+    else {
+      alert("account doesnt exist!!")
+      return false
+    }
   }
-  else{
-    alert("account doesnt exist!!")
-    return false
-  }
-}
+
+
 
 }

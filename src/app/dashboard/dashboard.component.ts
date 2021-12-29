@@ -8,36 +8,45 @@ import { DataService } from '../services/data.service';
 })
 export class DashboardComponent implements OnInit {
 
-  acno=""
-  pswd=""
-  amount=""
+  acno = ""
+  pswd = ""
+  amount = ""
 
 
-  acno1=""
-  pswd1=""
-  amount1=""
+  acno1 = ""
+  pswd1 = ""
+  amount1 = ""
 
-  constructor(private ds:DataService) { }
+  constructor(private ds: DataService) { }
 
   ngOnInit(): void {
   }
 
-  deposit(){
-    var acno=this.acno
+  deposit() {
+    var acno = this.acno
     var pswd = this.pswd
     var amount = this.amount
 
-    let result = this.ds.deposit(acno,pswd,amount)
+    let result = this.ds.deposit(acno, pswd, amount)
 
     if (result) {
-      alert(amount+" credited... New Balance is :"+ result)
-      
+      alert(amount + " credited... New Balance is :" + result)
+
     }
     // alert("deposit clicked")
   }
 
-  withdraw(){
-    alert("withdraw clicked")
-  }
+  withdraw() {
+    var acno = this.acno1
+    var pswd = this.pswd1
+    var amount = this.amount1
 
+    let result = this.ds.withdraw(acno, pswd, amount)
+
+    if (result) {
+      alert(amount + " debited... New Balance is :" + result)
+      // alert("withdraw clicked")
+    }
+
+  }
 }

@@ -1,12 +1,12 @@
 <div class="form">
     <h1>Register</h1>
 
-    <form (ngSubmit)=register()>
+    <form [formGroup]="registerForm" (ngSubmit)=register()>
         <div class="login-form">
-            <input type="text" id="uname" [(ngModel)]="uname" placeholder="User Name" name="username"/>
-            <input type="text" id="acno" [(ngModel)]="acno" placeholder="Account Number" name="acno"/>
+            <input type="text" id="uname" formControlName="uname" placeholder="User Name" name="username"/>
+            <input type="text" id="acno" formControlName="acno" placeholder="Account Number" name="acno"/>
     
-            <input type="password" id="password" [(ngModel)]="pswd" placeholder="password" name="password"/>
+            <input type="password" id="password" formControlName="pswd" placeholder="password" name="password"/>
             <button type="submit">register</button>
             <p class="message">Already registered? <a routerLink="">Login</a></p>
         </div>
