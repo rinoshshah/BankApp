@@ -16,6 +16,18 @@ export class DataService {
 
   constructor() { }
 
+  //to store in localstorage
+  saveDetails(){
+    if (this.users) {
+      localStorage.setItem("userDB",JSON.stringify(this.users))
+      
+    }
+    if (this.currentUserName) {
+      localStorage.setItem("cUserName",JSON.stringify(this.currentUserName))
+      
+    }
+  }
+
   register(acno: any, password: any, uname: any) {
 
     let db = this.users
@@ -30,6 +42,7 @@ export class DataService {
         balance: 0
       }
       // console.log(db);
+      this.saveDetails()
       return true
 
     }
@@ -43,6 +56,8 @@ export class DataService {
       if (password == database[acno]["password"]) {
 
         this.currentUserName=database[acno]["uname"]
+
+        this.saveDetails()
         return true
 
         // this.router.navigateByUrl('dashboard')
@@ -71,6 +86,8 @@ export class DataService {
     if (acno in db) {
       if (password == db[acno]["password"]) {
         db[acno]["balance"] = db[acno]["balance"] + amount
+
+        this.saveDetails()
         return db[acno]["balance"]
 
 
@@ -97,6 +114,8 @@ export class DataService {
       if (password == db[acno]["password"]) {
         if (db[acno]["balance"]>=amount) {
           db[acno]["balance"] = db[acno]["balance"] - amount
+
+          this.saveDetails()
         return db[acno]["balance"]
           
         }

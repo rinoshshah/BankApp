@@ -78,18 +78,18 @@
                     </div>
                     <div class="modal-body">
                       <div class="mb-3">
-                        <input type="text" name="acno1" id="acno1" formControlName="acno1" class="form-control" placeholder="Enter Account Number">
-                        <div *ngIf="(this.withdrawForm.get('acno1')?.touched||this.withdrawForm.get('acno1')?.dirty)&&this.withdrawForm.get('acno1')?.errors" class="error">Invalid Account Number</div>
+                        <input type="text" name="acno1" id="acno1" formControlName="acno" class="form-control" placeholder="Enter Account Number">
+                        <div *ngIf="(this.withdrawForm.get('acno')?.touched||this.withdrawForm.get('acno')?.dirty)&&this.withdrawForm.get('acno')?.errors" class="error">Invalid Account Number</div>
 
                       </div>
                       <div class="mb-3">
-                        <input type="password" name="pswd1" id="pswd1" formControlName="pswd1" class="form-control" placeholder="Password">
-                        <div *ngIf="(this.withdrawForm.get('pswd1')?.touched||this.withdrawForm.get('pswd1')?.dirty)&&this.withdrawForm.get('pswd1')?.errors" class="error">Invalid Password</div>
+                        <input type="password" name="pswd1" id="pswd1" formControlName="pswd" class="form-control" placeholder="Password">
+                        <div *ngIf="(this.withdrawForm.get('pswd')?.touched||this.withdrawForm.get('pswd')?.dirty)&&this.withdrawForm.get('pswd')?.errors" class="error">Invalid Password</div>
 
                       </div>
                       <div class="mb-3">
-                        <input type="text" name="amount1" id="amount1" formControlName="amount1" class="form-control" placeholder="Enter Amount">
-                        <div *ngIf="(this.withdrawForm.get('amount1')?.touched||this.withdrawForm.get('amount1')?.dirty)&&this.withdrawForm.get('amount1')?.errors" class="error">Invalid Amount</div>
+                        <input type="text" name="amount1" id="amount1" formControlName="amount" class="form-control" placeholder="Enter Amount">
+                        <div *ngIf="(this.withdrawForm.get('amount')?.touched||this.withdrawForm.get('amount')?.dirty)&&this.withdrawForm.get('amount')?.errors" class="error">Invalid Amount</div>
 
                       </div>
                       
