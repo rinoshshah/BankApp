@@ -5,10 +5,13 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
+
+  currentUserName:any
+
   users: any = {
-    1000: { acno: 1000, uname: "ram", password: "1000", balance: 5000 },
-    1001: { acno: 1001, uname: "ravi", password: "1001", balance: 5000 },
-    1002: { acno: 1002, uname: "john", password: "1002", balance: 5000 }
+    1000: { acno: 1000, uname: "Ram", password: "1000", balance: 5000 },
+    1001: { acno: 1001, uname: "Ravi", password: "1001", balance: 5000 },
+    1002: { acno: 1002, uname: "John", password: "1002", balance: 5000 }
   }
 
   constructor() { }
@@ -38,6 +41,8 @@ export class DataService {
 
     if (acno in database) {
       if (password == database[acno]["password"]) {
+
+        this.currentUserName=database[acno]["uname"]
         return true
 
         // this.router.navigateByUrl('dashboard')
