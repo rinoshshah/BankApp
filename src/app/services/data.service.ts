@@ -9,9 +9,9 @@ export class DataService {
   currentUserName: any
 
   users: any = {
-    1000: { acno: 1000, uname: "Ram", password: "1000", balance: 5000 },
-    1001: { acno: 1001, uname: "Ravi", password: "1001", balance: 5000 },
-    1002: { acno: 1002, uname: "John", password: "1002", balance: 5000 }
+    1000: { acno: 1000, uname: "Ram", password: "1000", balance: 5000 ,transactions:[]},
+    1001: { acno: 1001, uname: "Ravi", password: "1001", balance: 5000,transactions:[] },
+    1002: { acno: 1002, uname: "John", password: "1002", balance: 5000,transactions:[] }
   }
 
   constructor() {
@@ -53,7 +53,8 @@ export class DataService {
         acno,
         uname,
         password,
-        balance: 0
+        balance: 0,
+        transactions:[]
       }
       // console.log(db);
       this.saveDetails()
@@ -70,6 +71,7 @@ export class DataService {
       if (password == database[acno]["password"]) {
 
         this.currentUserName = database[acno]["uname"]
+
 
         this.saveDetails()
         return true
@@ -100,6 +102,10 @@ export class DataService {
     if (acno in db) {
       if (password == db[acno]["password"]) {
         db[acno]["balance"] = db[acno]["balance"] + amount
+        db[acno].transactions.push({
+          amount:amount,
+          type:"CREDIT"
+        })
 
         this.saveDetails()
         return db[acno]["balance"]
@@ -128,6 +134,10 @@ export class DataService {
       if (password == db[acno]["password"]) {
         if (db[acno]["balance"] >= amount) {
           db[acno]["balance"] = db[acno]["balance"] - amount
+          db[acno].transactions.push({
+            amount:amount,
+            type:"DEBIT"
+          })
 
           this.saveDetails()
           return db[acno]["balance"]
